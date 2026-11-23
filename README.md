@@ -40,4 +40,4 @@ Séismes, créer une page permettant de localiser des séismes sur une carte et 
 Possibilité de créer le repo de 2 manières :
 ![Maquette_de_mobile_et_desktop](img/option1.png)
 
-![Maquette_de_mobile_et_desktop](img/option1.png)
+![Maquette_de_mobile_et_desktop](img/option2.png)
