@@ -10,8 +10,8 @@
 
 # Détails :
 
-- créer un readme
-- initialiser un frontend
+- créer un fichier `readme.md`
+- initialiser un frontend/
   - `npm create vite@latest frontend`
     - React
     - TS
@@ -23,7 +23,9 @@
     - vider le fichier frontend/src/App.tsx
     - supprimer frontend/public/icons.svg
 
-- initialiser un backend
+  - npm i
+
+- initialiser un backend/
   - `git clone git@github.com:LoicBrassart/dwwm-ts-backend-express-template.git`
     - supprimer .git
   - créer le .env
@@ -31,13 +33,20 @@
   - retirer la route GET/pokemon
   - créer une route GET/ simple
 
+  - npm i
+
 # Piste possible de projet :
 
 Séismes, créer une page permettant de localiser des séismes sur une carte et de faire des projections 2D, chaque séisme a une fiche de présentation contenant les infos suivants : date, localisation 3D, magnitude, photos (?)
 
 # Note :
 
-Possibilité de créer le repo de 2 manières :
-![Maquette_de_mobile_et_desktop](img/option1.png)
+Possibilité de créer le repo de deux manières :
 
-![Maquette_de_mobile_et_desktop](img/option2.png)
+- Option 1 : Le monorepo, 1 repo = le projet
+  ![Maquette_de_mobile_et_desktop](img/option1.png)
+
+- Option 2 : Le deux repo dans le projet
+  ![Maquette_de_mobile_et_desktop](img/option2.png)
+
+  Ici, l'option 1 a été choisie et les readme des dossiers frontend/ et backend/ ont été supprimés
