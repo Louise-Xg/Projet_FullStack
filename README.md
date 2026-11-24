@@ -35,6 +35,15 @@
 
   - npm i
 
+  - utiliser le git workflow (main < dev < features)
+  - initialiser une bdd :
+    - créer des users :
+      - superuser (tous les droits) : `CREATE ROLE thisIsMe WITH LOGIN SUPERUSER PASSWORD 'myP@ssw0rd'`;
+      - user classique : `CREATE ROLE thisIsMe WITH LOGIN PASSWORD 'myP@ssw0rd'`
+
+    - créer des databases (projets) : `CREATE DATABASE project_name;` ou `CREATE DATABASE project_name OWNER thisIsMe;`
+    - créer des tables (entités) : `CREATE TABLE article(id integer not null generated always as identity primary key, title text not null unique);`
+
 # Piste possible de projet :
 
 Séismes, créer une page permettant de localiser des séismes sur une carte et de faire des projections 2D, chaque séisme a une fiche de présentation contenant les infos suivants : date, localisation 3D, magnitude, photos du lieu ou des dégâts + 1 zone permettant de donner son ressenti si la personne a été présente
