@@ -1,6 +1,6 @@
 # Projet_FullStack
 
-# Comment initialiser un projet fullstack.... :
+# Comment initialiser un projet fullstack... :
 
 1. Créer un dossier nomduprojet (i.e. racine du projet) avec `mkdir nomduprojet` et créer un repo sur Github avec le nomduprojet
 2. Créer un projet React avec Vite et le nommer frontend
