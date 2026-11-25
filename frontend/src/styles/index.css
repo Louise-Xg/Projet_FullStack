@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 
 :root {
   /* Fontfamilies */
-  --font-main: "Marcellus", serif;
+  --font-main: "Plus Jakarta Sans", sans-serif;
 
   /* Fontweights */
   --font-weight-normal: 400;
@@ -39,6 +39,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: var(--font-main);
-  font-weight: var(--font-weight-h1);
+  font-weight: var(--font-weight-normal);
   background-color: var(--white-color);
 }

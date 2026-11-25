@@ -1,0 +1,109 @@
+.section_eq_catalog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section_eq_catalog h1 {
+  text-align: center;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  margin: 1rem;
+}
+
+.section_eq_catalog h2 {
+  text-align: center;
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  margin: 1rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  margin: 2rem;
+}
+
+.section_eq_catalog ul {
+  margin: 1rem;
+  padding: 1rem;
+  border: 0.1rem solid var(--lightgrey-color);
+  height: 40vh;
+  overflow: auto;
+}
+
+/* About Link, here Link is actually a */
+.section_eq_catalog a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  gap: 1rem;
+}
+/* inherit remove the blue link color and keep in initial color */
+
+.list_bloc {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--midgrey-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.magnitude_icon {
+  width: 20%;
+  height: 5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Magnitude below 4 */
+.magnitude_low {
+  background-color: var(--green-color);
+  color: var(--darkgreen-color);
+}
+
+/* Magnitude from 4 to below 6 */
+.magnitude_moderate {
+  background-color: var(--orange-color);
+  color: var(--darkorange-color);
+}
+
+/* Magnitude 6 and above */
+.magnitude_high {
+  background-color: var(--red-color);
+  color: var(--darkred-color);
+}
+
+.section_eq_catalog p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.eq_small_presentation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 70%;
+}
+
+.arrow_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--darkgrey-color);
+  width: 10%;
+}
