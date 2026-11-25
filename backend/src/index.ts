@@ -18,7 +18,7 @@ const db = new Pool({
 });
 
 app.get("/", (req, res) => {
-  res.json({ msg: "Hello World!" });
+  res.json({ msg: "Hello dear visitor, please go to /eq_catalog" });
 });
 
 app.get("/eq_catalog", async (req, res) => {
