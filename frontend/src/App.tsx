@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header.tsx";
 import Full_eq_catalog from "./pages/Full_eq_catalog.tsx";
 import Details_eq from "./pages/Details_eq.tsx";
+import Footer from "./components/Footer.tsx";
 
 export type Earthquake = {
   id: number;
@@ -40,6 +41,7 @@ function App() {
           element={<Details_eq all_eq={earthquakes} />}
         />
       </Routes>
+      <Footer />
     </>
   );
 }
