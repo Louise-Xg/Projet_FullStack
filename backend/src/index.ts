@@ -18,7 +18,7 @@ const db = new Pool({
 });
 
 app.get("/", (req, res) => {
-  res.json({ msg: "Hello dear visitor, please go to /eq_catalog" });
+  res.json({ msg: "Hello World!" });
 });
 
 app.get("/eq_catalog", async (req, res) => {
@@ -26,16 +26,6 @@ app.get("/eq_catalog", async (req, res) => {
     "SELECT id, event_time, magnitude, magnitude_type, location, latitude, longitude, depth_km FROM eq_catalog LIMIT 10",
   );
   res.json(rows);
-});
-
-app.get("/eq_catalog/:id", async (req, res) => {
-  //here the id is actually a string
-  const { rows } = await db.query(
-    //structure of db.query: db.query(SQL_request, parameter_array);
-    "SELECT id, event_time, magnitude, magnitude_type, location, latitude, longitude, depth_km FROM eq_catalog WHERE id=$1", // $1 refers to the first value in the parameter array which, here, is the EQ id extracted from the URL : req.params.id
-    [Number(req.params.id)], //as the id from the url is a string, we convert it to number
-  );
-  res.json(rows[0]); //because if not [0], we have[ { id: 5, magnitude: "6.50", blabla ];
 });
 
 app.listen(PORT, () => {
