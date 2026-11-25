@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router";
+import { useState, useEffect } from "react";
+import Header from "./components/Header.tsx";
+import Full_eq_catalog from "./pages/Full_eq_catalog.tsx";
+import Details_eq from "./pages/Details_eq.tsx";
 
-type Earthquake = {
+export type Earthquake = {
   id: number;
   event_time: string;
   magnitude: number;
@@ -25,10 +29,17 @@ function App() {
 
   return (
     <>
-      <h1>Welcome Home!</h1>
-      {earthquakes.map((earthquake) => {
-        return <p>{earthquake.id} brrr</p>;
-      })}
+      <Header />
+      <Routes>
+        <Route
+          path="/full_eq_catalog"
+          element={<Full_eq_catalog all_eq={earthquakes} />}
+        />
+        <Route
+          path="/full_eq_catalog/:id"
+          element={<Details_eq all_eq={earthquakes} />}
+        />
+      </Routes>
     </>
   );
 }

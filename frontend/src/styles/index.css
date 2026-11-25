@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+
+:root {
+  /* Fontfamilies */
+  --font-main: "Marcellus", serif;
+
+  /* Fontweights */
+  --font-weight-normal: 400;
+  --font-weight-normal-bold: 600;
+  --font-weight-h1: 900;
+  --font-weight-h2: 800;
+  --font-weight-h3: 700;
+
+  /* Fontsizes */
+  --font-size-normal: 1rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.8rem;
+  --font-size-h3: 1.5rem;
+
+  /* Colors */
+  --lightgrey-color: #f2f2f7;
+  --midgrey-color: #e5e5ea;
+  --darkgrey-color: #8e8e93;
+  --navy-color: #00106b;
+  --black-color: #0000;
+  --white-color: #ffff;
+
+  /* Earthquake color scale according to magnitude */
+  --red-color: #db7476;
+  --darkred-color: #cd1e1e;
+  --orange-color: #dba274;
+  --darkorange-color: #b6641c;
+  --green-color: #91d47c;
+  --darkgreen-color: #3c8910;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-h1);
+  background-color: var(--white-color);
+}
