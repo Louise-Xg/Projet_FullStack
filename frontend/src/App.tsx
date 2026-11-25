@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type Eq = {
+type Earthquake = {
   id: number;
   event_time: string;
   magnitude: number;
@@ -12,13 +12,13 @@ type Eq = {
 };
 
 function App() {
-  const [eqs, setEqs] = useState<Eq[]>([]);
+  const [earthquakes, setEarthquakes] = useState<Earthquake[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       const rawData = await fetch("http://localhost:30000/eq_catalog");
-      const cleanData = (await rawData.json()) as Eq[];
-      setEqs(cleanData);
+      const cleanData = (await rawData.json()) as Earthquake[];
+      setEarthquakes(cleanData);
     }
     fetchData();
   }, []);
@@ -26,8 +26,8 @@ function App() {
   return (
     <>
       <h1>Welcome Home!</h1>
-      {eqs.map((eq) => {
-        return <p>{eq.id} brrr</p>;
+      {earthquakes.map((earthquake) => {
+        return <p>{earthquake.id} brrr</p>;
       })}
     </>
   );
