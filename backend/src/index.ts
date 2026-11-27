@@ -38,6 +38,13 @@ app.get("/eq_catalog/:id", async (req, res) => {
   res.json(rows[0]); //because if not [0], we have[ { id: 5, magnitude: "6.50", blabla ];
 });
 
+app.delete("/eq_catalog/:id", async (req, res) => {
+  const { rows } = await db.query("DELETE FROM eq_catalog WHERE id=$1", [
+    Number(req.params.id),
+  ]);
+  res.json(rows[0]);
+});
+
 app.listen(PORT, () => {
   console.log(`API available on http://localhost:${PORT} !`);
 });

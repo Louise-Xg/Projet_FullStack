@@ -9,10 +9,19 @@
 5. Nettoyer les dossiers frontend/ et backend/ puis retourner sur le terminal racine du projet et `git add .`, `git commit -m "Initialization of the project"`et `git push` ou `git push --set-upstream origin nomdelabranche`
 6. Créer une branche `dev`avec la commande : `git checkout -b dev` depuis la racine
 
-# ... À faire le lien entre database, backend et frontend :
+# ... À faire le lien entre database, backend et frontend... :
 
 7. Créer une database avec l'aide de SQLectron et lié + l'afficher dans le backend/ (Penser à dans le backend/ : (a) installer les packages `pg` et `@types/pg` tels que : `npm i pg` et `npm i -dev @types/pg`, et (b) créer un fichier .env)
 8. Lier la database du backend/ en la lisant comme étant une API dans le frontend/ (le lien pour l'API == lien du backend/ dans le navigateur) + extraire les données et les exploiter
+
+# ... À cibler une donnée spécifique... :
+
+9. Définir un nouveau chemin avec `/:id` dans le backend/ avec app.get(){} et utiliser impérativement id=$1 lors dans la requête pour raison de sécurité
+10. Définir des `Routes/Route/BrowserRouter/Link` du package "react-router" pour le nouveau chemin (et les autres nécessaires au projet)
+
+# ... Et la supprimer !
+
+11. Définir un nouveau chemin avec le même `/:id` dans le backend/ avec app.get(){} et une requête avec `DELETE`
 
 # Détails :
 
@@ -52,16 +61,41 @@
   - créer des tables (entités) : `CREATE TABLE article(id integer not null generated always as identity primary key, title text not null unique);`
 
 - lier le backend à la bdd
-  - packages pg & @types/pg
-  - environnement (dotenv)
+  - packages `pg` (dependency) & `@types/pg` (devDependency)
+  - environnement (`dotenv`)
+    - créer un .env qui contient toutes les infos sensibles (postgres: host, port, user, password, db ; api: port)
+    - ajouter le .env au .gitignore !
   - créer la connexion
+    - créer un `Pool` de connexions à PGSQL (import depuis `pg`)
+    - appeler les variables d'environnement via `process.env.xxxx`
   - créer une première requête
+    - créer une route dédiée (ex: GET /logs)
+    - demander au serveur SQL d'exécuter une requête (`db.query`)
 
 - lier le frontend au backend
-  - useEffect, useState
-  - créer un type TS custom
-  - fetch
-  - .map
+  - mon composant a besoin de faire qqc "au lancement" (effect). Il doit:
+    - appeler une API (`fetch`)
+    - nettoyer le resultat (`.json()`)
+    - stocker le resultat et redeclencher un affichage (state)
+  - a l'affichage, pour chaque donnée en state j'affiche un fragment de TSX (`.map()`)
+  - [Bonus] créer un type TS custom pour avoir l'autocomplétion sur les sous-propriétés de mon state
+
+- afficher un seul tuple de ma base
+  - [bdd] une requete SQL
+  - [backend] une nouvelle route GET/logs/:id
+  - [frontend]
+    - react-router
+      - main.tsx: BrowserRouter
+      - App.tsx: Routes
+    - une nouvelle page
+    - lien dynamique Home -> Log
+    - Header omnipresent avec lien -> Home
+
+- supprimer un article
+  - [bdd] une requete SQL
+  - [backend] une nouvelle route DELETE/logs/:id
+  - [frontend]
+    - un bouton "supprimer"
 
 # Piste possible de projet :
 
