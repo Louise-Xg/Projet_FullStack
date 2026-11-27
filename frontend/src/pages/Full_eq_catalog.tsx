@@ -47,7 +47,7 @@ function Full_eq_catalog() {
       <ul>
         {earthquakes.map((target_earthquake) => {
           return (
-            <li className={styles.list_bloc}>
+            <li key={target_earthquake.id} className={styles.list_bloc}>
               <div
                 className={`${styles.magnitude_icon} ${GetMagnitudeRange(target_earthquake.magnitude)}`} //because we can apply several classes as: className= "class1 class2"
               >
@@ -67,10 +67,10 @@ function Full_eq_catalog() {
                 </div>
               </Link>
 
-              {/* <DeleteButton
+              <DeleteButton
                 id={target_earthquake.id} //id of the earthquake to delete
                 updateCatalog={MostRecentCatalog} // update the displayed catalog earthquakes after successful deletion occuring in the function DeleteButton
-              /> */}
+              />
             </li>
           );
         })}
