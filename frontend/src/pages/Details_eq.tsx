@@ -1,38 +1,52 @@
 import { useParams } from "react-router";
-import type { Earthquake } from "../App";
+import { useState, useEffect } from "react";
+import type { Earthquake } from "../types/Earthquake";
+import { Link } from "react-router";
+import styles from "../styles/Details_eq.module.css";
 
-interface Details_eq_Props {
-  all_eq: Earthquake[];
-}
-
-function Details_eq({ all_eq }: Details_eq_Props) {
+function Details_eq() {
   // 1. Get id from the url of the backend/blablabla/id, here the id is a string
   const { id } = useParams();
 
-  // 2. Find the corresponding earthquake
-  const earthquake = all_eq.find(
-    (target_earthquake) => target_earthquake.id === Number(id), //as the id from url is a string, we have to convert it to number
+  const [target_earthquake, setTarget_Earthquake] = useState<Earthquake | null>(
+    null,
   );
 
-  // 3. Handle missing earthquakes, in case of no EQ id found, then display a msg like:  "there is no corresponding EQ to this id"
-  if (!earthquake) {
-    return <p>Earthquake not found. Stay tuned!</p>;
+  useEffect(() => {
+    async function fetchData() {
+      const rawData = await fetch(`http://localhost:30000/eq_catalog/${id}`);
+      const cleanData = (await rawData.json()) as Earthquake;
+      setTarget_Earthquake(cleanData);
+    }
+    fetchData();
+  }, []);
+
+  // 2. Handle missing earthquakes, in case of no EQ id found, then display a msg like:  "there is no corresponding EQ to this id"
+  if (target_earthquake === null) {
+    return <p>Earthquake id:{id} not found. Stay tuned...! </p>;
   }
 
-  // 4. Display earthquake information
+  // 3. Display earthquake information
   return (
-    <>
-      <h1>Earthquake Details</h1>
+    <section className={styles.section_eq_details}>
+      <h2>Earthquake Details</h2>
 
-      <p>Location: {earthquake.location}</p>
+      <div className={styles.presentation_eq_details}>
+        <p>Location: {target_earthquake.location}</p>
+        <p>Magnitude: {target_earthquake.magnitude}</p>
+        <p>Magnitude type: {target_earthquake.magnitude_type}</p>
+        <p>Date: {target_earthquake.event_time}</p>
+        <p>Depth: {target_earthquake.depth_km} km</p>
+        <p>Latitude: {target_earthquake.latitude} °</p>
+        <p>Longitude: {target_earthquake.longitude} °</p>
+      </div>
 
-      <p>Magnitude: {earthquake.magnitude}</p>
-      <p>Magnitude type: {earthquake.magnitude_type}</p>
-      <p>Date: {earthquake.event_time}</p>
-      <p>Depth: {earthquake.depth_km} km</p>
-      <p>Latitude: {earthquake.latitude} °</p>
-      <p>Longitude: {earthquake.longitude} °</p>
-    </>
+      <nav className={styles.navbutton}>
+        <Link to="/full_eq_catalog">
+          <button className={styles.returnbutton}> ↵ Return</button>
+        </Link>
+      </nav>
+    </section>
   );
 }
 

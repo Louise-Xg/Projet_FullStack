@@ -1,0 +1,43 @@
+.section_eq_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--midgrey-color);
+  padding: 1rem;
+  margin: 1rem;
+  gap: 2rem;
+}
+
+.section_eq_details h2 {
+  text-align: center;
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  margin: 1rem;
+}
+
+.presentation_eq_details {
+  text-align: center;
+  line-height: 2rem;
+  word-spacing: 0.1rem;
+}
+
+.navbutton {
+  align-self: flex-end;
+}
+
+.returnbutton {
+  padding: 0.5rem;
+  background-color: transparent;
+  color: var(--darkgrey-color);
+  font-family: var(--font-main);
+  font-size: var(--font-normal-h3);
+  font-weight: var(--font-weight-h3);
+  border-radius: 50rem;
+}
+
+.section_eq_details a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}

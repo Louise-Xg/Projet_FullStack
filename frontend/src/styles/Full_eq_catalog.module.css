@@ -26,11 +26,13 @@
 }
 
 .section_eq_catalog ul {
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1rem;
   border: 0.1rem solid var(--lightgrey-color);
-  height: 40vh;
-  overflow: auto;
+  width: 100%;
+  box-sizing: border-box;
+  height: 50vh;
+  overflow-y: auto;
 }
 
 /* About Link, here Link is actually a */
@@ -38,7 +40,6 @@
   text-decoration: none;
   color: inherit;
   display: flex;
-  gap: 1rem;
 }
 /* inherit remove the blue link color and keep in initial color */
 
@@ -47,6 +48,7 @@
   padding: 1rem;
   border-radius: 1rem;
   background-color: var(--midgrey-color);
+  gap: 0.5rem;
   display: flex;
   justify-content: space-between;
 }
